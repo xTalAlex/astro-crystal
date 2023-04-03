@@ -1,0 +1,28 @@
+---
+import Head from "./partials/Head.astro";
+import Navbar from "./partials/Navbar.astro";
+import Footer from "./partials/Footer.astro";
+import Sidebar from "./partials/Sidebar.astro";
+---
+
+<html lang="it">
+    <Head />
+	<body>
+		<div class="drawer">
+			<input id="my-drawer" type="checkbox" class="drawer-toggle" />
+			<div class="drawer-content scroll-smooth flex flex-col">
+				<Navbar />
+				<main class="flex-1">
+					<slot />
+				</main>
+                <Footer />
+			</div>
+			<div class="drawer-side">
+				<label for="my-drawer" class="drawer-overlay"></label>
+				<div class="menu w-80 bg-base-100 text-base-content">
+                    <Sidebar />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

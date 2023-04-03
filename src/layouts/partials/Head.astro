@@ -1,0 +1,30 @@
+---
+import { SEO } from "astro-seo";
+
+---
+<head>
+    <SEO
+        title="Astro Crystal"
+        description="Progetto di eCommerce con Astrojs e Crystallize."
+        openGraph={{
+            basic: {
+                title: "Astro Crystal",
+                type: "A type.",
+                image: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+            },
+        }}
+        twitter={{
+            creator: "TalAle",
+        }}
+        extend={{
+            link: [
+                {
+                    rel: "icon",
+                    href: "/favicon.svg",
+                    type: "image/svg+xml",
+                },
+                { rel: "sitemap", href: "/sitemap-index.xml" },
+            ],
+        }}
+    />
+</head>
