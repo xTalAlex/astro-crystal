@@ -1,5 +1,29 @@
 ---
 import Base from "../layouts/Base.astro";
+import { createClient } from '@crystallize/js-api-client';
+import { fragments } from "../lib/crystallize-graphql";
+
+const apiClient = createClient({
+  tenantIdentifier: 'talale'
+});
+
+const query = `
+	query getCataloguePaths {
+		catalogue(language: "it", path: "/") {
+			...item
+			...product
+			children {
+				...item
+				...product
+			}
+		}
+	}
+
+	${fragments}
+`
+const { catalogue } = await apiClient.catalogueApi(query);
+
+console.log(catalogue);
 ---
 
 <Base>
@@ -32,7 +56,7 @@ import Base from "../layouts/Base.astro";
 	</div>
 	<div
 		class="hero min-h-screen"
-		style="background-image: url(/images/stock/photo-1507358522600-9f71e620c44e.jpg);"
+		style="background-image: url(https://picsum.photos/2040/1560);"
 	>
 		<div class="hero-overlay bg-opacity-60"></div>
 		<div class="hero-content text-center text-neutral-content">
